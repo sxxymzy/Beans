@@ -1,0 +1,9 @@
+{
+  "name": "ion",
+  "app_id": "",
+  "v2": true,
+  "typescript": true,
+  "scripts": [
+    "libs/phaser/phaser.js"
+  ]
+}

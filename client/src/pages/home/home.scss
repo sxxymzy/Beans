@@ -1,0 +1,11 @@
+page-home {
+    $me-size:8vw;
+    #ico-me{
+        width: $me-size;
+        height: $me-size;
+        position: absolute;
+        top: 50vh;
+        left: 50vw;
+        transform: translate(-50%, -50%);
+    }
+}
