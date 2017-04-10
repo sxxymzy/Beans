@@ -16,18 +16,19 @@ export class GameBg {
   }
 
   update() {
+    let v = 2;
     if (this.cursors.left.isDown) {
-      this.bgTileSprite.tilePosition.x += 8;
+      this.bgTileSprite.tilePosition.x += v;
     }
     else if (this.cursors.right.isDown) {
-      this.bgTileSprite.tilePosition.x -= 8;
+      this.bgTileSprite.tilePosition.x -= v;
     }
 
     if (this.cursors.up.isDown) {
-      this.bgTileSprite.tilePosition.y += 8;
+      this.bgTileSprite.tilePosition.y += v;
     }
     else if (this.cursors.down.isDown) {
-      this.bgTileSprite.tilePosition.y -= 8;
+      this.bgTileSprite.tilePosition.y -= v;
     }
   }
 
