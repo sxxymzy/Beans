@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class GeoLocation {
 
-  constructor(public http: Http) {
+  constructor() {
     console.log('Hello GeoLocation Provider');
   }
 
