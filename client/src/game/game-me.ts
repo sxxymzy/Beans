@@ -18,7 +18,7 @@ export class GameMe {
 
     update() {
         let v = 2;
-        this.game.world.setBounds(this.player.position.x - this.game.width / 2, this.player.position.y - this.game.height / 2, this.game.width * 2, this.game.height * 2);
+        this.game.world.setBounds(this.player.position.x - this.game.width / 2, this.player.position.y - this.game.height / 2, this.game.width , this.game.height );
         if (this.cursors.left.isDown) {
             this.player.position.x -= v;
         }

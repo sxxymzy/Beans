@@ -6,30 +6,25 @@ export class GameBeans {
     this.game = game;
   }
   create() {
-    const quantity = 50;
+    this.game.physics.setBoundsToWorld();
     this.beansGroup = this.game.add.group()
-    for (let i = 0; i < quantity; i++) {
-      let x = Math.random() * this.game.width;
-      let y = Math.random() * this.game.height;
-      this.beansGroup.create(x, y, "bean");
-    }
+    this.beansGroup.enableBody = true;
+    this.addBeans(50);
   }
 
   update() {
-    // let v = 2;
-    // if (this.cursors.left.isDown) {
-    //   this.beansGroup.position.x += v;
-    // }
-    // else if (this.cursors.right.isDown) {
-    //   this.beansGroup.position.x -= v;
-    // }
-    // if (this.cursors.up.isDown) {
-    //   this.beansGroup.position.y += v;
-    // }
-    // else if (this.cursors.down.isDown) {
-    //   this.beansGroup.position.y -= v;
-    // }
-
+    if (this.beansGroup.countLiving() < 40) {
+      this.addBeans(10);
+    }
   }
 
+  addBeans(quantity) {
+    for (let i = 0; i < quantity; i++) {
+      let x = this.game.world.bounds.left + Math.random() * (this.game.world.bounds.right - this.game.world.bounds.left);
+      let y = this.game.world.bounds.top + Math.random() * (this.game.world.bounds.bottom - this.game.world.bounds.top);
+      let bean: Phaser.Sprite = this.beansGroup.create(x, y, "bean");
+      bean.checkWorldBounds = true;
+      bean.events.onOutOfBounds.add(bean => bean.kill());
+    }
+  }
 }
