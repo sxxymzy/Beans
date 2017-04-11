@@ -38,17 +38,22 @@ export class GameCore {
     this.game.physics.startSystem(Phaser.Physics.ARCADE);
     this.cursors = this.game.input.keyboard.createCursorKeys();
     this.gameBg.create(this.cursors);
-    this.gameBeans.create(this.cursors);
-    this.gameMe.create();
-    this.game.physics.arcade.enable([this.gameMe.icoMe, this.gameBeans.beansGroup]);
+    this.gameBeans.create();
+    this.gameMe.create(this.cursors);
+    this.game.physics.arcade.enable([this.gameMe.player, this.gameBeans.beansGroup]);
   }
   update() {
-    this.gameBg.update();
     this.gameBeans.update();
-    this.game.physics.arcade.overlap(this.gameMe.icoMe, this.gameBeans.beansGroup, function (me, bean) {
+    this.gameMe.update();
+    this.gameBg.update();
+    this.game.physics.arcade.overlap(this.gameMe.player, this.gameBeans.beansGroup, function (me, bean) {
       bean.kill();
     }, null, this);
   }
   render() {
+    this.game.debug.cameraInfo(this.game.camera, 32, 32);
+    // this.game.debug.spriteCoords(this.gameMe.player, 32, 500);
+    // this.game.debug.
+
   }
 }
